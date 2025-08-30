@@ -22,7 +22,7 @@ def print_solution(final_node, stats, algorithm):
 def main():
     parser = argparse.ArgumentParser(description='Run search algorithms on domains')
     parser.add_argument('--domain', choices=['wgc'], default='wgc', help='Domain to solve')
-    parser.add_argument('--algo', choices=['bfs'], default='bfs', help='Algorithm to use')
+    parser.add_argument('--algo', choices=['bfs', 'ids'], default='bfs', help='Algorithm to use')
     args = parser.parse_args()
 
     if args.domain == 'wgc':
