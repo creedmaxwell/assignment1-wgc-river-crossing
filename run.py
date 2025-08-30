@@ -17,7 +17,7 @@ def print_solution(final_node, stats, algorithm):
 
     for i, (state, action) in enumerate(path[1:], 1):
         prev_state = path[i-1][0]
-        print(f" {i}) {action:12} ({','.join('LR'[p] for p in prev_state.positions)}) -> ({','.join('LR'[p] for p in state.positions)})")
+        print(f" {i}) {action:12} ({','.join('LR'[p] for p in prev_state)}) -> ({','.join('LR'[p] for p in state)})")
 
 def main():
     parser = argparse.ArgumentParser(description='Run search algorithms on domains')
@@ -29,9 +29,10 @@ def main():
         domain = RiverCrossing()
         if args.algo == 'bfs':
             solution, stats = bfs(domain.initial_state, domain.is_goal, domain.get_successors)
-            print_solution(solution, stats)
-        else:
-            print(f"Algorithm {args.algo} not implemented")
+        if args.algo == 'ids':
+            solution, stats = ids(domain.initial_state, domain.is_goal, domain.get_successors)
+        print_solution(solution, stats, args.algo)
+            
     else:
         print(f"Domain {args.domain} not implemented")
 
