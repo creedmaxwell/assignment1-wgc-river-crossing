@@ -1,20 +1,5 @@
 from collections import defaultdict, deque
 
-# [0, 0, 0, 0] - initial state
-# [1, 0, 1, 0] - Take the goat over 
-# [0, 0, 1, 0] - Return empty-handed
-# [1, 1, 1, 0] - Take the wolf or cabbage over
-# [0, 1, 0, 0] - Return with the goat
-# [1, 1, 0, 1] - Take whichever wasn't taken in step 3 over
-# [0, 1, 0, 1] - Return empty-handed
-# [1, 1, 1, 1] - Take the goat over
-
-# generate a list with each possible move for each step, use BFS or IDS
-# determine which results in either goat or cabbage being uneaten
-# Initial state (L, L, L, L) -> Move goat (R, L, R, L) -> Return Alone (L, L, R, L) ...
-
-# using a graph
-
 class RiverCrossing:
     def __init__(self):
         self.initial_state = (0,0,0,0)
